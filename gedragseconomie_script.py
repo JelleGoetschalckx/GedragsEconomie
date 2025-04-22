@@ -1,10 +1,6 @@
 #_____________________________________GEDRAGSECONOMIE_SCRIPT_____________________________________#
 """
-Note voor uitvoerders: als participant opnieuw instructies wil zien
-bij oefen-trials kan je zelf uitleg geven, of op 'esc' duwen wanneer
-er 'Antwoord nu!' displayed is. Start het experiment daarna opnieuw
-op, geef een nieuw nummer in, en de uitleg kan terug gelezen worden.
-Start nooit een experiment opnieuw op wanneer het main experiment bezig is!
+Gemaakt door Jelle Goetschalckx en Mila Cortoos - Laatste bewerking op 7/04/2025
 """
 #________________________________________________________________________________________________#
 
@@ -13,7 +9,7 @@ import os, random
 
 def participant_info(directory):
     """
-    GUI-box vraag gegevens participant
+    GUI-box vraagt gegevens participant
     :param directory: plaats waar savefile komt, nodig om te controleren of filenaam al bestaat
     :return: nummer, gender en leeftijd van de participant + wie experiment begeleide
     """
@@ -162,7 +158,7 @@ class Experiment:
         # Maak ExperimentHandler, save als CSV met participant nummer achteraan
         self.exp_data = data.ExperimentHandler(dataFileName=f"{directory}_{self.onderzoeker}_{self.part_nummer}")
 
-        # Maak win (hide muis), maak instance van Stimuli class, message template en eindscore counter
+        # Maak win (& hide muis), maak instance van Stimuli class, message template en eindscore counter
         self.win = visual.Window(fullscr=True)
         self.win.mouseVisible = False
         self.stimuli = Stimuli(win=self.win, condities=self.condities)
